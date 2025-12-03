@@ -1,0 +1,136 @@
+================================================================================
+SATELLITE CONTROL SYSTEM - MISSION SUMMARY & CONFIGURATION
+================================================================================
+Generated: 2025-11-29 11:33:38
+Data Directory: Data/Simulation/29-11-2025_11-29-53
+Test Mode: SIMULATION
+================================================================================
+
+================================================================================
+MISSION CONFIGURATION - RECREATION DATA
+================================================================================
+This section contains all information needed to recreate this exact mission.
+
+MISSION TYPE: WAYPOINT NAVIGATION (MODE 1)
+--------------------------------------------------
+Description: Satellite visits multiple waypoints in sequence
+
+STARTING CONFIGURATION:
+  Starting X position:     1.000 m
+  Starting Y position:     0.500 m
+  Starting orientation:    28.6°
+
+WAYPOINTS:
+  Number of Waypoints:     1
+  Waypoint 1:              (0.000, 0.000) m, 0.0°
+
+  Hold Time per Waypoint:  5.0 s
+
+OBSTACLE CONFIGURATION:
+  Obstacle Avoidance:      DISABLED
+
+================================================================================
+CONTROLLER CONFIGURATION
+================================================================================
+These parameters affect mission performance and control behavior.
+
+MPC CONTROLLER PARAMETERS:
+--------------------------------------------------
+  Controller Type:         Linearized MPC (A*x[k] + B*u[k])
+  Solver:                  Gurobi
+  Prediction Horizon:      12 steps
+  Control Horizon:         12 steps
+  Simulation Timestep:     0.005 s
+  Control Timestep:        0.060 s
+  Solver Time Limit:       0.050 s
+
+COST FUNCTION WEIGHTS:
+--------------------------------------------------
+  Position Weight (Q):     1000.0
+  Velocity Weight (Q):     1750.0
+  Angle Weight (Q):        1000.0
+  Angular Vel Weight (Q):  1500.0
+  Thrust Penalty (R):      1.000
+  Switch Penalty (R):      0.000
+
+CONTROL CONSTRAINTS:
+--------------------------------------------------
+  Max Velocity:            0.250 m/s
+  Max Angular Velocity:    90.0°/s
+  Position Bounds:         ±3.0 m
+
+TOLERANCE THRESHOLDS:
+--------------------------------------------------
+  Position Tolerance:      0.050 m
+  Angle Tolerance:         <3.0°
+  Velocity Tolerance:      0.050 m/s
+  Angular Vel Tolerance:   <3.0°/s
+
+PHYSICAL PARAMETERS:
+--------------------------------------------------
+  Total Mass:              23.090 kg
+  Moment of Inertia:       0.323645 kg·m²
+  Satellite Size:          0.290 m
+  COM Offset:              (0.005553, 0.000784) m
+
+THRUSTER FORCES:
+  Thruster 1:             0.441450 N
+  Thruster 2:             0.430659 N
+  Thruster 3:             0.427716 N
+  Thruster 4:             0.438017 N
+  Thruster 5:             0.468918 N
+  Thruster 6:             0.446846 N
+  Thruster 7:             0.466956 N
+  Thruster 8:             0.484124 N
+
+HARDWARE INTERFACE SETTINGS:
+--------------------------------------------------
+  Serial Port:             COM20
+  Baud Rate:               115200
+  Motive Server URL:       SIMULATION
+  Rigid Body Name:         SIM_MODEL
+
+================================================================================
+ALL CONFIGURATION PARAMETERS (FOR TEST COMPARISON)
+================================================================================
+Complete listing of all system parameters for easy test-to-test comparison.
+
+MPC PARAMETERS:
+--------------------------------------------------
+  MPC_PREDICTION_HORIZON:        12
+  MPC_CONTROL_HORIZON:           12
+  MPC_SOLVER_TIME_LIMIT:         0.050 s
+  MPC_SOLVER_TYPE:               Gurobi
+  Q_POSITION:                    1000.0
+  Q_VELOCITY:                    1750.0
+  Q_ANGLE:                       1000.0
+  Q_ANGULAR_VELOCITY:            1500.0
+  R_THRUST:                      1.000
+  R_SWITCH:                      0.000
+  MAX_VELOCITY:                  0.250 m/s
+  MAX_ANGULAR_VELOCITY:          90.0°/s
+  POSITION_BOUNDS:               ±3.0 m
+  DAMPING_ZONE:                  0.250 m
+  VELOCITY_THRESHOLD:            0.030 m/s
+  MAX_VELOCITY_WEIGHT:           1000.0
+  ADAPTIVE_HORIZONS_ENABLED:     True
+  POSITION_TOLERANCE:            0.050 m
+  ANGLE_TOLERANCE:               3.0°
+  VELOCITY_TOLERANCE:            0.050 m/s
+  ANGULAR_VELOCITY_TOLERANCE:    3.0°/s
+
+TIMING PARAMETERS:
+--------------------------------------------------
+  SIMULATION_DT:                 0.005 s
+  CONTROL_DT:                    0.060 s
+  MAX_SIMULATION_TIME:           500.0 s
+  TARGET_HOLD_TIME:              5.0 s
+  POINT_TO_POINT_FINAL_STAB:    10.0 s
+  MULTI_POINT_FINAL_STAB:       10.0 s
+  DXF_FINAL_STAB:                10.0 s
+
+PHYSICS PARAMETERS:
+--------------------------------------------------
+  TOTAL_MASS:                    23.090 kg
+  MOMENT_OF_INERTIA:             0.323645 kg·m²
+  SATELLITE_SIZE:                0.290 m

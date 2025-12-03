@@ -255,7 +255,23 @@
     <div class="progress"><div class="progress-bar"></div></div>
   </section>
 
-  <!-- Slide 2 – Outline -->
+  <!-- Slide 2 – Hardware Demo Video -->
+  <section class="slide">
+    <div class="slide-header">
+      <h1>Hardware Demonstration</h1>
+      <span class="tag">The Result</span>
+    </div>
+    <div style="display: flex; justify-content: center; align-items: center; height: 70vh;">
+      <video controls style="max-height: 100%; max-width: 100%; border-radius: 8px; box-shadow: 0 4px 20px rgba(0,0,0,0.15);">
+        <source src="Data/Comparison/Test/Video_sped_up.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    </div>
+    <p class="muted" style="text-align: center; margin-top: 0.5em;">Video is sped up 2.5× — actual mission duration: ~3 minutes</p>
+    <div class="progress"><div class="progress-bar"></div></div>
+  </section>
+
+  <!-- Slide 3 – Outline -->
   <section class="slide">
     <h1>Outline</h1>
     <ul>
@@ -263,7 +279,7 @@
       <li><strong>Part 2:</strong> System – physical platform and simulation setup</li>
       <li><strong>Part 3:</strong> Math and MPC – what is solved every control step</li>
       <li><strong>Part 4:</strong> Results – simulation vs hardware and answers to the questions</li>
-      <li><strong>Backup slides:</strong> detailed math and derivations for Q&amp;A</li>
+      <li><strong>Backup slides:</strong></li>
     </ul>
     <div class="progress"><div class="progress-bar"></div></div>
   </section>
@@ -453,26 +469,32 @@
       <span class="tag">Part 2 – System</span>
     </div>
 
-    <h2>Main chassis</h2>
-    <ul>
-      <li>Cubic structure, approximately 290 × 290 × 150&nbsp;mm.</li>
-      <li>Houses thrusters, manifolds, valves, tubing, and onboard electronics.</li>
-    </ul>
+    <div class="two-column">
+      <div>
+        <h2>Main chassis</h2>
+        <ul>
+          <li>Cubic structure, approximately 290 × 290 × 150&nbsp;mm.</li>
+          <li>Houses thrusters, manifolds, valves, tubing, and onboard electronics.</li>
+        </ul>
 
-    <h2>Air-bearing platform</h2>
-    <ul>
-      <li>Mounted to the bottom of the chassis.</li>
-      <li>Creates a thin air film between the platform and floor.</li>
-      <li>Provides nearly frictionless planar motion.</li>
-    </ul>
+        <h2>Air-bearing platform</h2>
+        <ul>
+          <li>Mounted to the bottom of the chassis.</li>
+          <li>Creates a thin air film between the platform and floor.</li>
+          <li>Provides nearly frictionless planar motion.</li>
+        </ul>
 
-    <h2>High-pressure air cylinder platform</h2>
-    <ul>
-      <li>Holds compressed-air cylinder and pressure regulators.</li>
-      <li>Supplies air to thrusters and air bearings.</li>
-    </ul>
+        <h2>High-pressure air cylinder platform</h2>
+        <ul>
+          <li>Holds compressed-air cylinder and pressure regulators.</li>
+          <li>Supplies air to thrusters and air bearings.</li>
+        </ul>
+      </div>
 
-    <!-- TODO: Insert one or more photos of the physical platform -->
+      <div style="display: flex; justify-content: center; align-items: center;">
+        <img src="Presentation_images/Mechanical_Platform.png" alt="Mechanical Platform" style="max-height: 80vh; max-width: 110%; object-fit: contain;">
+      </div>
+    </div>
 
     <div class="progress"><div class="progress-bar"></div></div>
   </section>
@@ -499,10 +521,7 @@
           <li>Reflective markers on the chassis define the body frame.</li>
           <li>Pose streamed in real time to the ground-station computer.</li>
         </ul>
-        <!-- TODO: Insert photo of test area and cameras -->
-      </div>
 
-      <div>
         <h2>Computing and communication</h2>
         <ul>
           <li>Ground-station computer:
@@ -519,7 +538,10 @@
             </ul>
           </li>
         </ul>
-        <!-- TODO: Insert photo of ground-station PC and electronics -->
+      </div>
+
+      <div style="display: flex; justify-content: center; align-items: center;">
+        <img src="Presentation_images/Experimental Environment_Sensing_and_Computing.png" alt="Experimental Environment, Sensing, and Computing" style="max-height: 70vh; max-width: 100%; object-fit: contain;">
       </div>
     </div>
 
@@ -533,25 +555,31 @@
       <span class="tag">Part 2 – System</span>
     </div>
 
-    <h2>Layout</h2>
-    <ul>
-      <li>Eight thrusters located at known positions around the chassis.</li>
-      <li>Directions chosen to provide both translation and rotation authority.</li>
-    </ul>
+    <div class="two-column">
+      <div>
+        <h2>Layout</h2>
+        <ul>
+          <li>Eight thrusters located at known positions around the chassis.</li>
+          <li>Directions chosen to provide both translation and rotation authority.</li>
+        </ul>
 
-    <h2>Calibration</h2>
-    <ul>
-      <li>Effective thrust of each thruster measured at operating pressure.</li>
-      <li>Asymmetries (≈10% or more) are preserved in the model.</li>
-    </ul>
+        <h2>Calibration</h2>
+        <ul>
+          <li>Effective thrust of each thruster measured at operating pressure.</li>
+          <li>Asymmetries (≈10% or more) are preserved in the model.</li>
+        </ul>
 
-    <h2>Role in control</h2>
-    <ul>
-      <li>Calibrated forces and lever arms are used to construct the input matrix \(B(\theta_k)\).</li>
-      <li>MPC uses this information to optimally select thruster firings.</li>
-    </ul>
+        <h2>Role in control</h2>
+        <ul>
+          <li>Calibrated forces and lever arms are used to construct the input matrix \(B(\theta_k)\).</li>
+          <li>MPC uses this information to optimally select thruster firings.</li>
+        </ul>
+      </div>
 
-    <!-- TODO: Insert top-down schematic of thruster positions and directions -->
+      <div style="display: flex; justify-content: center; align-items: center;">
+        <img src="Presentation_images/Thruster_Layout_and_Calibration.png" alt="Thruster Layout and Calibration" style="max-height: 100vh; max-width: 110%; object-fit: contain;">
+      </div>
+    </div>
 
     <div class="progress"><div class="progress-bar"></div></div>
   </section>
@@ -1199,7 +1227,7 @@
   <!-- Slide 23 – Solver Settings -->
   <section class="slide">
     <div class="slide-header">
-      <h1>Solver Settings for Real-Time MPC</h1>
+      <h1>Solver Settings</h1>
       <span class="tag">Part 3 – Implementation</span>
     </div>
 
@@ -1241,10 +1269,7 @@
         <p class="equation">
           \[\frac{\text{Upper} - \text{Lower}}{\text{Upper}} \le 0.01\]
         </p>
-        <p class="muted" style="margin-top: 0.3em;">
-          A 1% suboptimal solution is indistinguishable in practice — MPC re-solves every 60 ms anyway.
-        </p>
-
+       
         <h2 style="margin-top: 0.6em;">Impact</h2>
         <p>Faster solve time with negligible performance loss</p>
       </div>
@@ -1273,12 +1298,11 @@
         </ol>
 
         <h2 style="margin-top: 0.6em;">How it helps</h2>
-        <p>The solver uses the initial guess as its starting <strong>incumbent</strong> (best known solution), then explores nearby branches first.</p>
+        <p>The solver uses the initial guess as its starting starting point, then explores nearby branches first.</p>
         <p style="margin-top: 0.3em;">Because the guess already has certain thrusters "on", the solver is <strong>biased toward solutions that keep those same thrusters active</strong>.</p>
       </div>
 
       <div>
-        <h2>Visually</h2>
         <p class="equation">
           \[
             U_k = \begin{bmatrix} \mathbf{u}_k \\ \mathbf{u}_{k+1} \\ \mathbf{u}_{k+2} \\ \vdots \\ \mathbf{u}_{k+N-1} \end{bmatrix}
@@ -1301,14 +1325,14 @@
     <div class="progress"><div class="progress-bar"></div></div>
   </section>
 
-  <!-- Slide 24 – Simulation Model -->
+  <!-- Slide 25 – Simulation Model -->
   <section class="slide">
     <div class="slide-header">
       <h1>The Simulation Model: Adding Realism</h1>
       <span class="tag">Part 3 – Simulation</span>
     </div>
 
-    <p style="margin-bottom: 0.3em;">Each simulation timestep (Δt = 5ms), after applying thruster forces:</p>
+    <p style="margin-bottom: 0.3em;">Each simulation timestep \(\Delta t_{\text{sim}} = 5\text{ms}\), after applying thruster forces:</p>
 
     <div class="two-column" style="gap: 2em;">
       <div>
@@ -1376,7 +1400,7 @@
     <div class="progress"><div class="progress-bar"></div></div>
   </section>
 
-  <!-- Slide 24 – Mission Modes and Target State -->
+  <!-- Slide 26 – Mission Modes and Target State -->
   <section class="slide">
     <div class="slide-header">
       <h1>Mission Modes: How \(\mathbf{x}^{\text{target}}\) is Defined</h1>
@@ -1390,7 +1414,7 @@
         <h2 style="margin-top: 0; color: #2563eb;">Mode 1: Waypoint Navigation</h2>
         <p>User defines one or more target points with orientations.</p>
         <ol>
-          <li>Set \(\mathbf{x}^{\text{target}}\) = waypoint 1</li>
+          <li>Set \(\mathbf{x}^{\text{target}}\) = next waypoint</li>
           <li>MPC drives satellite toward target</li>
           <li>When \(|x - x^{\text{t}}| < \epsilon\) and \(|\theta - \theta^{\text{t}}| < \epsilon\):
             <ul>
@@ -1417,7 +1441,6 @@
               \[\Delta d = v_{\text{target}} \cdot \Delta t_{\text{control}}\]
             </p>
           </li>
-          <li>θ target = tangent direction (satellite faces along path)</li>
           <li>When path complete → stabilize at final point (or return to different target)</li>
         </ol>
         <p class="muted" style="margin-top: 0.3em;">
@@ -1433,116 +1456,74 @@
     <div class="progress"><div class="progress-bar"></div></div>
   </section>
 
-  <!-- Slide 25 – Trajectory tracking -->
+  <!-- Slide 27 – Trajectory tracking -->
   <section class="slide">
     <div class="slide-header">
-      <h1>Trajectory Tracking: Simulation vs Hardware</h1>
+      <h1>Trajectory Tracking</h1>
       <span class="tag">Part 4 – Results</span>
     </div>
 
-    <h2>Position tracking</h2>
-    <ul>
-      <li>\(x\)-\(y\) trajectories:
-        <ul>
-          <li>Reference path.</li>
-          <li>Simulation result.</li>
-          <li>Hardware result.</li>
-        </ul>
-      </li>
-      <li>Report metrics:
-        <ul>
-          <li>Mean position error for hardware.</li>
-          <li>Final position error at mission end.</li>
-        </ul>
-      </li>
-    </ul>
-
-    <h2>Heading tracking</h2>
-    <ul>
-      <li>\(\theta(t)\): reference vs simulation vs hardware.</li>
-      <li>Final attitude error on hardware.</li>
-    </ul>
-
-    <p class="muted">
-      The controller tuned on the linear model produces similar tracking performance on the real nonlinear satellite.
-    </p>
-
-    <!-- TODO: Insert plots for x-y and heading vs time -->
+    <div style="display: flex; justify-content: center; align-items: center; height: 70vh;">
+      <img src="Data/Comparison/Test/trajectory_comparison_three.png" alt="Trajectory Comparison" style="max-height: 100%; max-width: 100%; object-fit: contain;">
+    </div>
 
     <div class="progress"><div class="progress-bar"></div></div>
   </section>
 
-  <!-- Slide 26 – Thruster usage comparison -->
+  <!-- Slide 28 – Error and Velocity Plots -->
+  <section class="slide">
+    <div class="slide-header">
+      <h1>Tracking Performance Metrics</h1>
+      <span class="tag">Part 4 – Results</span>
+    </div>
+
+    <div style="display: flex; flex-direction: column; gap: 0.5em; height: 60vh; align-items: center;">
+      <div style="display: flex; justify-content: center; flex: 1; min-height: 0;">
+        <img src="Data/Comparison/Test/position_error.png" alt="Position Error" style="max-height: 100%; max-width: 100%; object-fit: contain;">
+      </div>
+      <div style="display: flex; gap: 0.5em; flex: 1; min-height: 0; width: 100%; justify-content: center;">
+        <img src="Data/Comparison/Test/angular_error.png" alt="Angular Error" style="max-height: 100%; max-width: 50%; object-fit: contain;">
+        <img src="Data/Comparison/Test/velocity_magnitude.png" alt="Velocity Magnitude" style="max-height: 100%; max-width: 50%; object-fit: contain;">
+      </div>
+    </div>
+
+    <div class="progress"><div class="progress-bar"></div></div>
+  </section>
+
+  <!-- Slide 29 – Thruster usage comparison -->
   <section class="slide">
     <div class="slide-header">
       <h1>Thruster Usage Comparison</h1>
       <span class="tag">Part 4 – Results</span>
     </div>
 
-    <h2>Per-thruster on-time</h2>
-    <ul>
-      <li>Compare total on-time per thruster:
-        <ul>
-          <li>Simulation vs hardware.</li>
-        </ul>
-      </li>
-      <li>Differences at single-thruster level due to disturbances and nonlinearities.</li>
-    </ul>
-
-    <h2>Total thruster on-time</h2>
-    <ul>
-      <li>Aggregate on-time across all thrusters:
-        <ul>
-          <li>Simulation vs hardware.</li>
-        </ul>
-      </li>
-      <li>Report percentage difference.</li>
-    </ul>
-
-    <p class="muted">
-      The linear model predicts mission-level fuel usage well, even if detailed switching patterns differ.
-    </p>
-
-    <!-- TODO: Insert bar chart / table for thruster usage -->
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5em; height: 78vh;">
+      <div style="display: flex; flex-direction: column; align-items: center;">
+        <img src="Data/Comparison/Test/thruster_usage_overlay.png" alt="Thruster Usage Overlay" style="max-height: 100%; max-width: 100%; object-fit: contain;">
+      </div>
+      <div style="display: flex; flex-direction: column; align-items: center;">
+        <img src="Data/Comparison/Test/thruster_usage_comparison.png" alt="Thruster Usage Comparison" style="max-height: 100%; max-width: 100%; object-fit: contain;">
+      </div>
+    </div>
 
     <div class="progress"><div class="progress-bar"></div></div>
   </section>
 
-  <!-- Slide 27 – Solver performance -->
+  <!-- Slide 30 – Solver performance -->
   <section class="slide">
     <div class="slide-header">
       <h1>Real-Time Solver Performance</h1>
       <span class="tag">Part 4 – Results</span>
     </div>
 
-    <h2>Measured solve times</h2>
-    <ul>
-      <li>Histogram or time series of MIQP solve times during hardware mission.</li>
-      <li>Report:
-        <ul>
-          <li>Mean solve time.</li>
-          <li>Maximum solve time.</li>
-          <li>Any steps close to the deadline.</li>
-        </ul>
-      </li>
-    </ul>
-
-    <h2>Observation</h2>
-    <ul>
-      <li>All solve times stay below the 50&nbsp;ms bound.</li>
-      <li>No control updates are missed.</li>
-    </ul>
-
-    <p class="muted">
-      Mixed-integer MPC with the chosen linear model is feasible in real time with a 60&nbsp;ms control period.
-    </p>
-
-    <!-- TODO: Insert plot of solver times -->
+    <div style="display: flex; justify-content: center; align-items: center; height: 78vh;">
+      <img src="Data/Comparison/Test/mpc_performance.png" alt="MPC Solver Performance" style="max-height: 100%; max-width: 100%; object-fit: contain;">
+    </div>
 
     <div class="progress"><div class="progress-bar"></div></div>
   </section>
 
-  <!-- Slide 28 – Research questions revisited -->
+  <!-- Slide 31 – Research questions revisited -->
   <section class="slide">
     <div class="slide-header">
       <h1>Research Questions Revisited</h1>
@@ -1552,80 +1533,303 @@
     <ol>
       <li>
         <strong>Model accuracy for tuning:</strong><br/>
-        Simulation and hardware show similar tracking performance and fuel usage.
-        The linear model with heading-dependent input is accurate enough to tune MPC in simulation.
+        <ul style="margin-top: 0.3em;">
+          <li>Total thruster usage: 188.04s (hardware) vs 190.80s (simulation) — <strong>1.5% difference</strong></li>
+          <li>Trajectory shapes align closely; simulation is smoother</li>
+          <li>Mission duration: 198.00s (hardware) vs 196.16s (simulation) — <strong>0.94% error</strong></li>
+          <li>MPC solver timing: max 32.10ms (hardware) vs 24.25ms (simulation), mean 4.61ms vs 5.64ms</li>
+        </ul>
       </li>
-      <li>
+      <li style="margin-top: 0.5em;">
         <strong>Compensation for asymmetric thrusters:</strong><br/>
-        Using individual thruster calibrations in \(B(\theta_k)\) allows MPC to handle asymmetry.
-        Hardware results confirm effective compensation at the mission level.
+        <ul style="margin-top: 0.3em;">
+          <li>Using individual thruster calibrations in \(B(\theta_k)\) allows MPC to handle asymmetry</li>
+          <li>MPC controlled platform successfully despite up to 13% thrust variation</li>
+        </ul>
       </li>
-      <li>
+      <li style="margin-top: 0.5em;">
         <strong>Real-time feasibility:</strong><br/>
-        MIQP solve times remain within the 50&nbsp;ms deadline throughout the mission.
-        Mixed-integer MPC is practically feasible with a 60&nbsp;ms control period on this platform.
+        <ul style="margin-top: 0.3em;">
+          <li>Mean solve time: <strong>4.61 ms</strong>, worst-case: <strong>32.10 ms</strong></li>
+          <li><strong>Zero missed deadlines</strong> (all within 50ms budget / 60ms period)</li>
+          <li>Experimentally verifies MILP-based control is feasible at 60ms with room for more variables</li>
+        </ul>
       </li>
     </ol>
 
     <div class="progress"><div class="progress-bar"></div></div>
   </section>
 
-  <!-- Slide 29 – Contributions, limitations, future work -->
+  <!-- Slide 32 – Conclusions -->
   <section class="slide">
     <div class="slide-header">
-      <h1>Contributions, Limitations, and Future Work</h1>
-      <span class="tag">Conclusion</span>
+      <h1>Conclusions</h1>
+      <span class="tag">Summary</span>
     </div>
 
-    <h2>Contributions</h2>
-    <ul>
-      <li>Planar air-bearing satellite platform with eight calibrated binary thrusters.</li>
-      <li>Real-time mixed-integer MPC that explicitly models binary thrusters, asymmetries, and constraints.</li>
-      <li>Shared linear model with heading-dependent input used in both MPC and simulation.</li>
-      <li>Simulation-to-hardware validation of tracking, fuel usage, and solver performance.</li>
-    </ul>
+    <div class="two-column">
+      <div>
+        <h2>What was built</h2>
+        <ul>
+          <li>Planar air-bearing satellite testbed with 8 binary thrusters</li>
+          <li>Real-time mixed-integer MPC controller (MIQP)</li>
+          <li>Matched simulation environment for tuning and validation</li>
+        </ul>
 
-    <h2>Limitations</h2>
-    <ul>
-      <li>2D planar dynamics only; no full 6-DOF orbital environment.</li>
-      <li>Offboard sensing (motion capture) and offboard computation (ground station).</li>
-      <li>Linear model does not capture all nonlinear hardware effects.</li>
-    </ul>
+        <h2>What was demonstrated</h2>
+        <ul>
+          <li>Successful trajectory tracking for inspection-style missions</li>
+          <li>Simulation accurately predicts hardware behavior</li>
+          <li>MPC compensates for 13% thruster asymmetry using calibration</li>
+          <li>Real-time feasibility: all solves under 50ms, mean 4.6ms</li>
+        </ul>
+      </div>
 
-    <h2>Future work</h2>
-    <ul>
-      <li>Implement MPC and state estimation onboard the satellite.</li>
-      <li>Develop a richer nonlinear simulation model of the plant.</li>
-      <li>Extend to 6-DOF dynamics and more complex thruster layouts.</li>
-      <li>Explore multi-satellite inspection or formation-control scenarios.</li>
-    </ul>
+      <div>
+        <h2>Key contributions</h2>
+        <ul>
+          <li>Hardware validation of MIQP-based MPC with true binary thrusters</li>
+          <li>Frozen-heading linearization enables fast, predictable solves</li>
+          <li>Simulation-to-hardware pipeline for controller development</li>
+        </ul>
+
+        <h2>Future directions</h2>
+        <ul>
+          <li>Onboard computation and state estimation</li>
+          <li>Extension to 6-DOF dynamics</li>
+          <li>Multi-satellite coordination scenarios</li>
+        </ul>
+      </div>
+    </div>
 
     <div class="progress"><div class="progress-bar"></div></div>
   </section>
 
-  <!-- Slide 30 – Summary and questions -->
+  <!-- Slide 33 – Thank You -->
   <section class="slide">
-    <div class="slide-header">
-      <h1>Summary and Questions</h1>
-      <span class="tag">Conclusion</span>
+    <div class="center">
+      <h1 class="title-main">Thank You</h1>
+      <p class="subtitle" style="margin-top: 1em;">Questions?</p>
+      <p style="margin-top: 2em;">
+        Aevar Andri Amundinusarson Oefjoerd<br/>
+        <span class="muted">M.S. Mechanical Engineering, University of Kentucky</span>
+      </p>
+      <p class="muted" style="margin-top: 1.5em;">
+        Committee: Dr. Hasan Poonawala · Dr. Michael Seigler · Dr. Jesse Hoagg
+      </p>
     </div>
-
-    <ul>
-      <li>Demonstrated control of a 2D inspection-style satellite using MPC with binary thrusters.</li>
-      <li>Used a linear planar model with heading-dependent input matrix in both MPC and simulation.</li>
-      <li>Showed that a controller tuned in simulation transfers well to the real nonlinear platform.</li>
-      <li>Confirmed that mixed-integer MPC is feasible with a 60&nbsp;ms control period on this testbed.</li>
-    </ul>
-
-    <p style="margin-top: 2em;">
-      Thank you for your attention.<br/>
-      I am happy to take your questions.
-    </p>
-
     <div class="progress"><div class="progress-bar"></div></div>
   </section>
 
   <!-- Backup slides (math) -->
+
+  <!-- Backup – System Parameters -->
+  <section class="slide">
+    <div class="slide-header">
+      <h1>System Parameters</h1>
+      <span class="tag">Backup – Parameters</span>
+    </div>
+
+    <div class="three-column" style="gap: 1.5em;">
+      <div>
+        <h2>Physical Properties</h2>
+        <table style="font-size: 1.4rem; width: 100%;">
+          <tr><td>Total mass</td><td>\(m = 23.09\) kg</td></tr>
+          <tr><td>Moment of inertia</td><td>\(I_z = 0.324\) kg·m²</td></tr>
+          <tr><td>Chassis size</td><td>290 × 290 mm x 150 mm</td></tr>
+        </table>
+
+        <h2 style="margin-top: 0.8em;">Timing</h2>
+        <table style="font-size: 1.4rem; width: 100%;">
+          <tr><td>Control interval</td><td>\(\Delta t = 60\) ms</td></tr>
+          <tr><td>Simulation step</td><td>\(\Delta t_{sim} = 5\) ms</td></tr>
+          <tr><td>Solver time limit</td><td>50 ms</td></tr>
+        </table>
+      </div>
+
+      <div>
+        <h2>MPC Cost Weights</h2>
+        <table style="font-size: 1.4rem; width: 100%;">
+          <tr><td>\(Q_{\text{position}}\)</td><td>1000</td></tr>
+          <tr><td>\(Q_{\text{velocity}}\)</td><td>1750</td></tr>
+          <tr><td>\(Q_{\text{angle}}\)</td><td>1000</td></tr>
+          <tr><td>\(Q_{\omega}\)</td><td>1500</td></tr>
+          <tr><td>\(R_{\text{thrust}}\)</td><td>1.0</td></tr>
+          <tr><td>\(R_{\text{switch}}\)</td><td>0.0</td></tr>
+        </table>
+
+        <h2 style="margin-top: 0.8em;">Horizons</h2>
+        <table style="font-size: 1.4rem; width: 100%;">
+          <tr><td>Prediction \(N\)</td><td>12 steps</td></tr>
+          <tr><td>Control \(M\)</td><td>12 steps</td></tr>
+          <tr><td>Horizon time</td><td>0.72 s</td></tr>
+        </table>
+      </div>
+
+      <div>
+        <h2>Constraints</h2>
+        <table style="font-size: 1.4rem; width: 100%;">
+          <tr><td>Max velocity</td><td>0.25 m/s</td></tr>
+          <tr><td>Max \(\omega\)</td><td>\(\pi/2\) rad/s</td></tr>
+          <tr><td>Position bounds</td><td>±3.0 m</td></tr>
+        </table>
+
+        <h2 style="margin-top: 0.8em;">Simulation Realism</h2>
+        <table style="font-size: 1.4rem; width: 100%;">
+          <tr><td>Linear damping</td><td>1.8 N/(m/s)</td></tr>
+          <tr><td>Rotational damping</td><td>0.3 N·m/(rad/s)</td></tr>
+          <tr><td>Valve delay</td><td>40 ms</td></tr>
+          <tr><td>Thrust ramp-up</td><td>10 ms</td></tr>
+          <tr><td>Disturbance force</td><td>\(\sigma = 0.4\) N</td></tr>
+          <tr><td>Disturbance torque</td><td>\(\sigma = 0.1\) N·m</td></tr>
+        </table>
+      </div>
+    </div>
+
+    <div class="progress"><div class="progress-bar"></div></div>
+  </section>
+
+  <!-- Backup – Thruster Calibration -->
+  <section class="slide">
+    <div class="slide-header">
+      <h1>Thruster Calibration</h1>
+      <span class="tag">Backup – Calibration</span>
+    </div>
+
+    <div class="two-column">
+      <div>
+        <h2>Calibration procedure</h2>
+        <ol>
+          <li>Mount satellite on test stand (not floating)</li>
+          <li>Connect thruster to load cell via push-to-connect fitting</li>
+          <li>Tare load cell with known weight (50g)</li>
+          <li>Fire each thruster for 25 pulses × 10 seconds</li>
+          <li>Record force at 20 ms sampling rate</li>
+          <li>Extract steady-state median force per thruster</li>
+        </ol>
+
+        <h2 style="margin-top: 0.6em;">Operating conditions</h2>
+        <ul>
+          <li>Air pressure: 40 PSI (regulated)</li>
+          <li>Load cell: 100g max capacity</li>
+          <li>Rest period: 5s between pulses</li>
+        </ul>
+      </div>
+
+      <div>
+        <h2>Measured thruster forces</h2>
+        <table style="font-size: 1.5rem; width: 100%;">
+          <tr style="background: #e5edff;"><th>Thruster</th><th>Force (N)</th><th>Deviation</th></tr>
+          <tr><td>1 (Right-top)</td><td>0.441</td><td>−1.1%</td></tr>
+          <tr><td>2 (Right-bottom)</td><td>0.431</td><td>−3.4%</td></tr>
+          <tr><td>3 (Bottom-right)</td><td>0.428</td><td>−4.1%</td></tr>
+          <tr><td>4 (Bottom-left)</td><td>0.438</td><td>−1.8%</td></tr>
+          <tr><td>5 (Left-bottom)</td><td>0.469</td><td>+5.1%</td></tr>
+          <tr><td>6 (Left-top)</td><td>0.447</td><td>+0.2%</td></tr>
+          <tr><td>7 (Top-left)</td><td>0.467</td><td>+4.7%</td></tr>
+          <tr><td>8 (Top-right)</td><td>0.484</td><td>+8.5%</td></tr>
+        </table>
+        <p class="muted" style="margin-top: 0.3em;">
+          Mean: 0.446 N &nbsp;|&nbsp; Range: 0.428–0.484 N &nbsp;|&nbsp; Max asymmetry: ~13%
+        </p>
+      </div>
+    </div>
+
+    <div class="progress"><div class="progress-bar"></div></div>
+  </section>
+
+  <!-- Backup – Tuning Process -->
+  <section class="slide">
+    <div class="slide-header">
+      <h1>Tuning Process</h1>
+      <span class="tag">Backup – Tuning</span>
+    </div>
+
+    <div class="two-column">
+      <div>
+        <h2>Horizon selection (N = 12)</h2>
+        <ul>
+          <li>Trade-off: longer horizon sees further but increases solve time and reduces responsiveness to unpredicted disturbances</li>
+          <li>N = 12 at 60ms → 0.72s lookahead</li>
+          <li>Sufficient for typical maneuver speeds (0.1–0.2 m/s)</li>
+          <li>96 binary variables (8 thrusters × 12 steps) solvable in &lt;50ms</li>
+        </ul>
+
+        <h2 style="margin-top: 0.6em;">Weight selection</h2>
+        <ul>
+          <li><strong>\(Q_{\text{pos}}\) = 1000:</strong> Strong position tracking</li>
+          <li><strong>\(Q_{\text{vel}}\) = 1750:</strong> Higher than position to damp oscillations</li>
+          <li><strong>\(Q_{\theta}\) = 1000:</strong> Equal priority to heading</li>
+          <li><strong>\(Q_{\omega}\) = 1500:</strong> Prevent spinning</li>
+          <li><strong>\(R\) = 1:</strong> Mild fuel penalty (tracking prioritized)</li>
+          <li><strong>\(R_{\text{switch}}\) = 0:</strong> Not used; warm-starting approach handles switching instead</li>
+        </ul>
+      </div>
+
+      <div>
+
+        <h2 style="margin-top: 0.6em;">Adaptive velocity boost</h2>
+        <p>When near target (&lt;0.25m) with residual velocity:</p>
+        <p class="equation">\[Q_{\text{vel}} \leftarrow Q_{\text{vel}} \times \min(3, \text{boost})\]</p>
+        <p class="muted">Helps achieve smooth stops without overshoot</p>
+      </div>
+    </div>
+
+    <div class="progress"><div class="progress-bar"></div></div>
+  </section>
+
+  <!-- Backup – Robustness and Failure Modes -->
+  <section class="slide">
+    <div class="slide-header">
+      <h1>Robustness and Failure Modes</h1>
+      <span class="tag">Backup – Robustness</span>
+    </div>
+
+    <div class="two-column">
+      <div>
+        <h2>What could go wrong?</h2>
+        
+        <div style="background: #fff3e8; padding: 0.5em; border-radius: 6px; margin-bottom: 0.5em;">
+          <p style="margin: 0;"><strong>MPC solver timeout</strong></p>
+          <p class="muted" style="margin: 0.2em 0 0 0;">If solver exceeds 50ms, fallback controller activates</p>
+        </div>
+
+        <div style="background: #fff3e8; padding: 0.5em; border-radius: 6px; margin-bottom: 0.5em;">
+          <p style="margin: 0;"><strong>Motion capture dropout</strong></p>
+          <p class="muted" style="margin: 0.2em 0 0 0;">Thrusters turn off until recovery</p>
+        </div>
+
+        <div style="background: #fff3e8; padding: 0.5em; border-radius: 6px; margin-bottom: 0.5em;">
+          <p style="margin: 0;"><strong>Thruster failure</strong></p>
+          <p class="muted" style="margin: 0.2em 0 0 0;">MPC can compensate if remaining thrusters provide controllability</p>
+        </div>
+      </div>
+
+      <div>
+        <h2>Fallback controller</h2>
+        <p>If MPC fails to solve in time:</p>
+        <ul>
+          <li>Simple proportional control activates</li>
+          <li>Fires thrusters to reduce dominant error</li>
+          <li>Position error &gt; threshold → fire toward target</li>
+          <li>Angle error &gt; threshold → fire to rotate</li>
+        </ul>
+        <p class="muted" style="margin-top: 0.3em;">
+          In all experiments: fallback was <strong>never activated</strong>
+        </p>
+
+        <h2 style="margin-top: 0.6em;">Disturbance rejection</h2>
+        <ul>
+          <li>MPC assumes no friction — real system has it</li>
+          <li>Random air currents, floor imperfections</li>
+          <li>60ms feedback loop continuously corrects</li>
+          <li>No explicit disturbance model needed</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="progress"><div class="progress-bar"></div></div>
+  </section>
 
   <!-- Backup M1 – Frames and rotation -->
   <section class="slide">
@@ -1634,70 +1838,125 @@
       <span class="tag">Backup – Math</span>
     </div>
 
-    <h2>World and body frames</h2>
-    <ul>
-      <li>World frame: fixed to the lab floor.</li>
-      <li>Body frame: fixed to the satellite chassis.</li>
-    </ul>
+    <div class="two-column">
+      <div>
+        <h2>World and body frames</h2>
+        <ul>
+          <li><strong>World frame:</strong> fixed to the lab floor (OptiTrack reference)</li>
+          <li><strong>Body frame:</strong> fixed to the satellite chassis, rotates with heading \(\theta\)</li>
+        </ul>
 
-    <h2>Rotation matrix</h2>
-    <p class="equation">
-      \[
-        R(\theta) =
-        \begin{bmatrix}
-        \cos\theta & -\sin\theta \\
-        \sin\theta &  \cos\theta
-        \end{bmatrix}
-      \]
-    </p>
-    <ul>
-      <li>Thruster forces are defined in the body frame.</li>
-      <li>World-frame forces:
-        \[
-          F^{\text{world}} =
-          R(\theta)
-          F^{\text{body}}.
-        \]
-      </li>
-    </ul>
+        <h2 style="margin-top: 0.6em;">Rotation matrix \(R(\theta)\)</h2>
+        <p>Transforms vectors from body frame to world frame:</p>
+        <p class="equation">
+          \[
+            R(\theta) =
+            \begin{bmatrix}
+            \cos\theta & -\sin\theta \\
+            \sin\theta &  \cos\theta
+            \end{bmatrix}
+          \]
+        </p>
+      </div>
+
+      <div>
+        <h2>Applying the rotation</h2>
+        <p>For thruster \(i\) with body-frame force \(\mathbf{f}_i^{\text{body}} = [f_{ix}, f_{iy}]^\top\):</p>
+        <p class="equation">
+          \[
+            \mathbf{f}_i^{\text{world}} = R(\theta_k) \, \mathbf{f}_i^{\text{body}}
+          \]
+        </p>
+        <p>Expanded:</p>
+        <p class="equation">
+          \[
+            \begin{bmatrix} f_{ix}^{\text{world}} \\ f_{iy}^{\text{world}} \end{bmatrix}
+            =
+            \begin{bmatrix}
+            \cos\theta_k & -\sin\theta_k \\
+            \sin\theta_k & \cos\theta_k
+            \end{bmatrix}
+            \begin{bmatrix} f_{ix} \\ f_{iy} \end{bmatrix}
+          \]
+        </p>
+        <p class="muted" style="margin-top: 0.3em;">
+          The rotation uses the current heading \(\theta_k\) — this is why \(B\) depends on \(\theta_k\).
+        </p>
+      </div>
+    </div>
 
     <div class="progress"><div class="progress-bar"></div></div>
   </section>
 
-  <!-- Backup M2 – Continuous-time dynamics -->
+  <!-- Backup M2 – Discrete-time dynamics detail -->
   <section class="slide">
     <div class="slide-header">
-      <h1>Continuous-Time Dynamics: \(A_c\) and \(B_c(\theta)\)</h1>
+      <h1>Discrete-Time Dynamics: \(A\) and \(B(\theta_k)\) Detail</h1>
       <span class="tag">Backup – Math</span>
     </div>
 
-    <p class="equation">
-      \[
-        \dot{\mathbf{x}} =
-        \begin{bmatrix}
-        \dot x \\ \dot y \\ \dot \theta \\ \dot v_x \\ \dot v_y \\ \dot \omega
-        \end{bmatrix}
-        =
-        A_c \mathbf{x}
-        +
-        B_c(\theta)\,\mathbf{u}
-      \]
-    </p>
+    <div class="two-column">
+      <div>
+        <p><strong>State-space model:</strong></p>
+        <p class="equation">
+          \[
+            \mathbf{x}_{k+1} = A \, \mathbf{x}_k + B(\theta_k)\,\mathbf{u}_k
+          \]
+        </p>
 
-    <ul>
-      <li>First three rows encode kinematics: \(\dot x = v_x\), \(\dot y = v_y\), \(\dot \theta = \omega\).</li>
-      <li>Last three rows encode dynamics:
-        \[
-          m \dot v_x = F_x,\quad m \dot v_y = F_y,\quad I_z \dot \omega = \tau.
-        \]
-      </li>
-      <li>\(B_c(\theta)\) maps binary thruster commands to \((\dot v_x, \dot v_y, \dot \omega)\)
-          using calibrated forces and lever arms.</li>
-    </ul>
+        <p style="margin-top: 0.5em;"><strong>\(A\) matrix</strong> (6×6, constant, \(\Delta t = 60\) ms):</p>
+        <p class="equation">
+          \[
+            A =
+            \begin{bmatrix}
+            1 & 0 & 0 & \Delta t & 0 & 0 \\
+            0 & 1 & 0 & 0 & \Delta t & 0 \\
+            0 & 0 & 1 & 0 & 0 & \Delta t \\
+            0 & 0 & 0 & 1 & 0 & 0 \\
+            0 & 0 & 0 & 0 & 1 & 0 \\
+            0 & 0 & 0 & 0 & 0 & 1
+            \end{bmatrix}
+          \]
+        </p>
+        <p class="muted">Row 1: \(x_{k+1} = x_k + v_x \Delta t\)</p>
+        <p class="muted">Row 2: \(y_{k+1} = y_k + v_y \Delta t\)</p>
+        <p class="muted">Row 3: \(\theta_{k+1} = \theta_k + \omega \Delta t\)</p>
+        <p class="muted">Rows 4-6: velocities persist (no friction in model)</p>
+      </div>
 
-    <p class="muted">
-      Full matrices \(A_c\) and \(B_c(\theta)\) can be shown if needed.
-    </p>
+      <div>
+        <p><strong>\(B(\theta_k)\) matrix</strong> (6×8, recomputed each solve):</p>
+        <p class="equation" style="font-size: 0.9em;">
+          \[
+            B(\theta_k) = \Delta t
+            \begin{bmatrix}
+            0 & 0 & \cdots & 0 \\
+            0 & 0 & \cdots & 0 \\
+            0 & 0 & \cdots & 0 \\
+            \frac{f_{1x}^{\text{world}}}{m} & \frac{f_{2x}^{\text{world}}}{m} & \cdots & \frac{f_{8x}^{\text{world}}}{m} \\[0.3em]
+            \frac{f_{1y}^{\text{world}}}{m} & \frac{f_{2y}^{\text{world}}}{m} & \cdots & \frac{f_{8y}^{\text{world}}}{m} \\[0.3em]
+            \frac{\tau_1}{I_z} & \frac{\tau_2}{I_z} & \cdots & \frac{\tau_8}{I_z}
+            \end{bmatrix}
+          \]
+        </p>
+        <p class="muted" style="margin-top: 0.3em;">
+          World-frame forces from rotation:
+        </p>
+        <p class="equation">
+          \[
+            f_{ix}^{\text{world}} = \cos\theta_k \, f_{ix} - \sin\theta_k \, f_{iy}
+          \]
+        </p>
+        <p class="equation">
+          \[
+            f_{iy}^{\text{world}} = \sin\theta_k \, f_{ix} + \cos\theta_k \, f_{iy}
+          \]
+        </p>
+        <p class="muted">
+          Torques \(\tau_i\) are frame-independent (precomputed at startup)
+        </p>
+      </div>
+    </div>
 
     <div class="progress"><div class="progress-bar"></div></div>
   </section>
@@ -1709,70 +1968,121 @@
       <span class="tag">Backup – Math</span>
     </div>
 
-    <h2>Forces</h2>
-    <ul>
-      <li>Stack thruster commands into \(\mathbf{u} \in \{0,1\}^8\).</li>
-      <li>Body-frame forces:
-        \[
-          F^{\text{body}} = S_F \mathbf{u},
-        \]
-        where \(S_F\) collects calibrated forces and directions.
-      </li>
-      <li>World-frame forces:
-        \[
-          F^{\text{world}} = R(\theta)\,F^{\text{body}}.
-        \]
-      </li>
-    </ul>
+    <div class="two-column">
+      <div>
+        <h2>Body-frame force per thruster</h2>
+        <p>Each thruster \(i\) has calibrated magnitude \(F_i\) and direction \(\mathbf{d}_i = [d_{ix}, d_{iy}]^\top\):</p>
+        <p class="equation">
+          \[
+            \mathbf{f}_i^{\text{body}} = F_i \cdot \mathbf{d}_i =
+            \begin{bmatrix} f_{ix} \\ f_{iy} \end{bmatrix}
+            = \begin{bmatrix} F_i \cdot d_{ix} \\ F_i \cdot d_{iy} \end{bmatrix}
+          \]
+        </p>
 
-    <h2>Torque</h2>
-    <ul>
-      <li>Lever arms \(r_i\) from center of mass to each thruster.</li>
-      <li>Torque about \(z\)-axis:
-        \[
-          \tau = \sum_i (r_i \times F_i)_z.
-        \]
-      </li>
-    </ul>
+        <h2 style="margin-top: 0.6em;">World-frame force</h2>
+        <p>Rotate using current heading \(\theta_k\):</p>
+        <p class="equation">
+          \[
+            \mathbf{f}_i^{\text{world}} = R(\theta_k) \, \mathbf{f}_i^{\text{body}}
+          \]
+        </p>
+        <p>Expanded:</p>
+        <p class="equation">
+          \[
+            \begin{bmatrix} f_{ix}^{\text{world}} \\ f_{iy}^{\text{world}} \end{bmatrix}
+            =
+            \begin{bmatrix}
+            \cos\theta_k \, f_{ix} - \sin\theta_k \, f_{iy} \\
+            \sin\theta_k \, f_{ix} + \cos\theta_k \, f_{iy}
+            \end{bmatrix}
+          \]
+        </p>
+      </div>
 
-    <p class="muted">
-      Combining these gives the continuous-time input matrix \(B_c(\theta)\).
-    </p>
+      <div>
+        <h2>Torque per thruster</h2>
+        <p>Thruster \(i\) at position \(\mathbf{r}_i = [r_{ix}, r_{iy}]^\top\) from center of mass:</p>
+        <p class="equation">
+          \[
+            \tau_i = (\mathbf{r}_i \times \mathbf{f}_i^{\text{body}})_z = r_{ix} \cdot f_{iy} - r_{iy} \cdot f_{ix}
+          \]
+        </p>
+        <p class="muted">Cross product z-component (2D case)</p>
+
+        <h2 style="margin-top: 0.6em;">Net force and torque</h2>
+        <p>Summing over all active thrusters:</p>
+        <p class="equation">
+          \[
+            F_x = \sum_{i=1}^{8} u_i \cdot f_{ix}^{\text{world}}, \quad
+            F_y = \sum_{i=1}^{8} u_i \cdot f_{iy}^{\text{world}}
+          \]
+        </p>
+        <p class="equation">
+          \[
+            \tau = \sum_{i=1}^{8} u_i \cdot \tau_i
+          \]
+        </p>
+        <p class="muted">where \(u_i \in \{0, 1\}\) is the binary command</p>
+      </div>
+    </div>
 
     <div class="progress"><div class="progress-bar"></div></div>
   </section>
 
-  <!-- Backup M4 – Discretization -->
+  <!-- Backup M4 – Expanded B matrix computation -->
   <section class="slide">
     <div class="slide-header">
-      <h1>Discretization: \(A\) and \(B(\theta_k)\)</h1>
+      <h1>Building \(B(\theta_k)\): Full Matrix Derivation</h1>
       <span class="tag">Backup – Math</span>
     </div>
 
+    <p>Starting from Newton's laws for a rigid body in 2D:</p>
     <p class="equation">
       \[
-        \mathbf{x}_{k+1} \approx \mathbf{x}_k + \Delta t\,\dot{\mathbf{x}}_k
-        =
-        \mathbf{x}_k + \Delta t\left(A_c \mathbf{x}_k + B_c(\theta_k)\mathbf{u}_k\right)
-      \]
-    </p>
-    <p class="equation">
-      \[
-        \Rightarrow\ \mathbf{x}_{k+1}
-        =
-        \underbrace{(I + \Delta t\,A_c)}_{A}
-        \mathbf{x}_k
-        +
-        \underbrace{\Delta t\,B_c(\theta_k)}_{B(\theta_k)}
-        \mathbf{u}_k.
+        \dot{v}_x = \frac{F_x}{m}, \quad
+        \dot{v}_y = \frac{F_y}{m}, \quad
+        \dot{\omega} = \frac{\tau}{I_z}
       \]
     </p>
 
-    <ul>
-      <li>\(\Delta t = 0.06\) s.</li>
-      <li>Approximation is acceptable due to high update rate and moderate maneuvers.</li>
-      <li>Resulting \(A\) and \(B(\theta)\) are used in MPC and simulation.</li>
-    </ul>
+    <p style="margin-top: 0.3em;">Discretizing with Euler integration (\(\Delta t = 60\) ms) and substituting world-frame forces:</p>
+    <p class="equation" style="font-size: 0.85em;">
+      \[
+        B(\theta_k) = \Delta t
+        \begin{bmatrix}
+        0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\[0.2em]
+        0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\[0.2em]
+        0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\[0.2em]
+        \frac{\cos\theta_k f_{1x} - \sin\theta_k f_{1y}}{m} & \frac{\cos\theta_k f_{2x} - \sin\theta_k f_{2y}}{m} & \frac{\cos\theta_k f_{3x} - \sin\theta_k f_{3y}}{m} & \cdots & \frac{\cos\theta_k f_{8x} - \sin\theta_k f_{8y}}{m} \\[0.4em]
+        \frac{\sin\theta_k f_{1x} + \cos\theta_k f_{1y}}{m} & \frac{\sin\theta_k f_{2x} + \cos\theta_k f_{2y}}{m} & \frac{\sin\theta_k f_{3x} + \cos\theta_k f_{3y}}{m} & \cdots & \frac{\sin\theta_k f_{8x} + \cos\theta_k f_{8y}}{m} \\[0.4em]
+        \frac{\tau_1}{I_z} & \frac{\tau_2}{I_z} & \frac{\tau_3}{I_z} & \cdots & \frac{\tau_8}{I_z}
+        \end{bmatrix}
+      \]
+    </p>
+
+    <div class="two-column" style="margin-top: 0.3em;">
+      <div>
+        <p><strong>Row interpretation:</strong></p>
+        <ul style="font-size: 1.5rem;">
+          <li>Rows 1-3: zeros (thrusters affect velocity, not position directly)</li>
+          <li>Row 4: \(\Delta v_x\) from each thruster (world frame)</li>
+          <li>Row 5: \(\Delta v_y\) from each thruster (world frame)</li>
+          <li>Row 6: \(\Delta \omega\) from each thruster (no rotation needed)</li>
+        </ul>
+      </div>
+      <div>
+        <p><strong>Precomputed at startup:</strong></p>
+        <ul style="font-size: 1.5rem;">
+          <li>\(f_{ix}, f_{iy}\): body-frame force components</li>
+          <li>\(\tau_i = r_{ix} f_{iy} - r_{iy} f_{ix}\): torque from each thruster</li>
+        </ul>
+        <p><strong>Recomputed each solve:</strong></p>
+        <ul style="font-size: 1.5rem;">
+          <li>\(\cos\theta_k, \sin\theta_k\): rotation terms</li>
+        </ul>
+      </div>
+    </div>
 
     <div class="progress"><div class="progress-bar"></div></div>
   </section>
@@ -1780,21 +2090,70 @@
   <!-- Backup M5 – Prediction matrices -->
   <section class="slide">
     <div class="slide-header">
-      <h1>Prediction Matrices \(\mathcal{A}\) and \(\mathcal{B}\)</h1>
+      <h1>Prediction Matrices: Stacking the Horizon</h1>
       <span class="tag">Backup – Math</span>
     </div>
 
-    <p class="equation">
-      \[
-        \mathbf{X} = \mathcal{A} x_k + \mathcal{B} \mathbf{U}
-      \]
-    </p>
-    <ul>
-      <li>\(\mathcal{A}\) stacks repeated powers of \(A\) along the diagonal.</li>
-      <li>\(\mathcal{B}\) is block-lower-triangular with products of \(A\) and \(B(\theta_k)\).</li>
-      <li>Each block row corresponds to one future state \(x_{k+1},\dots,x_{k+N}\).</li>
-      <li>Each block column corresponds to one input \(u_k,\dots,u_{k+N-1}\).</li>
-    </ul>
+    <p>To form a single optimization problem, stack all N future states and inputs:</p>
+
+    <div class="two-column">
+      <div>
+        <p><strong>Stacked state vector</strong> (\(6N \times 1\)):</p>
+        <p class="equation">
+          \[
+            \mathbf{X} =
+            \begin{bmatrix}
+            \mathbf{x}_{k+1} \\ \mathbf{x}_{k+2} \\ \vdots \\ \mathbf{x}_{k+N}
+            \end{bmatrix}
+          \]
+        </p>
+
+        <p style="margin-top: 0.5em;"><strong>Stacked input vector</strong> (\(8N \times 1\)):</p>
+        <p class="equation">
+          \[
+            \mathbf{U} =
+            \begin{bmatrix}
+            \mathbf{u}_k \\ \mathbf{u}_{k+1} \\ \vdots \\ \mathbf{u}_{k+N-1}
+            \end{bmatrix}
+          \]
+        </p>
+
+        <p style="margin-top: 0.5em;"><strong>Compact prediction:</strong></p>
+        <p class="equation">
+          \[
+            \mathbf{X} = \mathcal{A} \, \mathbf{x}_k + \mathcal{B} \, \mathbf{U}
+          \]
+        </p>
+      </div>
+
+      <div>
+        <p><strong>\(\mathcal{A}\) matrix</strong> (\(6N \times 6\)):</p>
+        <p class="equation">
+          \[
+            \mathcal{A} =
+            \begin{bmatrix}
+            A \\ A^2 \\ A^3 \\ \vdots \\ A^N
+            \end{bmatrix}
+          \]
+        </p>
+        <p class="muted">Powers of A propagate the initial state forward</p>
+
+        <p style="margin-top: 0.5em;"><strong>\(\mathcal{B}\) matrix</strong> (\(6N \times 8N\)), block-lower-triangular:</p>
+        <p class="equation" style="font-size: 0.85em;">
+          \[
+            \mathcal{B} =
+            \begin{bmatrix}
+            B & 0 & 0 & \cdots & 0 \\
+            AB & B & 0 & \cdots & 0 \\
+            A^2B & AB & B & \cdots & 0 \\
+            \vdots & \vdots & \vdots & \ddots & \vdots \\
+            A^{N-1}B & A^{N-2}B & \cdots & AB & B
+            \end{bmatrix}
+          \]
+        </p>
+        <p class="muted">where \(B = B(\theta_k)\) is frozen at current heading throughout horizon</p>
+      </div>
+    </div>
 
     <div class="progress"><div class="progress-bar"></div></div>
   </section>
@@ -1802,60 +2161,134 @@
   <!-- Backup M6 – Cost details -->
   <section class="slide">
     <div class="slide-header">
-      <h1>Cost Function and Weight Matrices</h1>
+      <h1>Cost Function: Expanded Form</h1>
       <span class="tag">Backup – Math</span>
     </div>
 
-    <p class="equation">
-      \[
-        J_{\text{track}} =
-        \sum_{j=1}^N (x_{k+j} - x^{\text{target}})^\top Q (x_{k+j} - x^{\text{target}})
-      \]
-    </p>
-    <p class="equation">
-      \[
-        J_{\text{fuel}} =
-        \sum_{j=0}^{N-1} u_{k+j}^\top R \, u_{k+j}
-      \]
-    </p>
-    <p class="equation">
-      \[
-        J_{\text{switch}} =
-        \sum_{j=0}^{N-1} s_{k+j}^\top S \, s_{k+j}
-      \]
-    </p>
+    <div class="two-column">
+      <div>
+        <p><strong>Tracking cost</strong> (quadratic in states):</p>
+        <p class="equation">
+          \[
+            J_{\text{track}} =
+            \sum_{j=1}^{N} \left(\mathbf{x}_{k+j} - \mathbf{x}^{\text{target}}\right)^\top Q \left(\mathbf{x}_{k+j} - \mathbf{x}^{\text{target}}\right)
+          \]
+        </p>
 
-    <ul>
-      <li>\(Q\): diagonal weights on position, heading, and velocities.</li>
-      <li>\(R\): diagonal weights on thruster on-time (fuel proxy).</li>
-      <li>\(S\): weights on switching variables.</li>
-    </ul>
+        <p style="margin-top: 0.3em;"><strong>The \(Q\) matrix</strong> (6×6 diagonal):</p>
+        <p class="equation" style="font-size: 0.82em;">
+          \[
+            Q =
+            \begin{bmatrix}
+            Q_{\text{pos}} & 0 & 0 & 0 & 0 & 0 \\
+            0 & Q_{\text{pos}} & 0 & 0 & 0 & 0 \\
+            0 & 0 & Q_{\theta} & 0 & 0 & 0 \\
+            0 & 0 & 0 & Q_{\text{vel}} & 0 & 0 \\
+            0 & 0 & 0 & 0 & Q_{\text{vel}} & 0 \\
+            0 & 0 & 0 & 0 & 0 & Q_{\omega}
+            \end{bmatrix}
+          \]
+        </p>
+        <p class="muted">Values: \(Q_{\text{pos}}=1000\), \(Q_{\theta}=1000\), \(Q_{\text{vel}}=1750\), \(Q_{\omega}=1500\)</p>
+        <p class="muted">Expanded per step:</p>
+        <p class="equation" style="font-size: 0.9em;">
+          \[
+            \begin{aligned}
+            &Q_{\text{pos}}(x_{k+j} - x^{\text{target}})^2 + Q_{\text{pos}}(y_{k+j} - y^{\text{target}})^2 \\
+            &+ Q_{\theta}(\theta_{k+j} - \theta^{\text{target}})^2 + Q_{\text{vel}}(v_{x,k+j})^2 \\
+            &+ Q_{\text{vel}}(v_{y,k+j})^2 + Q_{\omega}(\omega_{k+j})^2
+            \end{aligned}
+          \]
+        </p>
+      </div>
+
+      <div>
+        <p><strong>Fuel cost</strong> (linear in binary inputs):</p>
+        <p class="equation">
+          \[
+            J_{\text{fuel}} =
+            \sum_{j=0}^{N-1} \sum_{i=1}^{8} R \cdot u_{k+j,i}
+          \]
+        </p>
+        <p class="muted">With \(R = 1\). Counts total thruster-on time steps.</p>
+        <p class="muted">Since \(u_i \in \{0,1\}\), this sums over all firing events.</p>
+
+        <p style="margin-top: 0.5em;"><strong>Switching cost</strong> (not used: \(R_{\text{sw}} = 0\)):</p>
+        <p class="equation">
+          \[
+            J_{\text{switch}} =
+            \sum_{j=1}^{N-1} \sum_{i=1}^{8} R_{\text{sw}} \cdot |u_{k+j,i} - u_{k+j-1,i}|
+          \]
+        </p>
+        <p class="muted">Would penalize on→off or off→on transitions.</p>
+        <p class="muted">Warm-starting handles smoothness instead.</p>
+
+        <p style="margin-top: 0.5em;"><strong>Total cost:</strong></p>
+        <p class="equation">
+          \[J = J_{\text{track}} + J_{\text{fuel}} + J_{\text{switch}}\]
+        </p>
+      </div>
+    </div>
 
     <div class="progress"><div class="progress-bar"></div></div>
   </section>
 
-  <!-- Backup M7 – Constraints and switching logic -->
+  <!-- Backup M7 – Constraints expanded -->
   <section class="slide">
     <div class="slide-header">
-      <h1>Constraints and Switching Logic</h1>
+      <h1>Constraints: Physical Limits</h1>
       <span class="tag">Backup – Math</span>
     </div>
 
-    <h2>State constraints</h2>
-    <ul>
-      <li>Linear inequalities on stacked states:
-        \[
-          G_x \mathbf{X} \le h_x.
-        \]
-      </li>
-    </ul>
+    <div class="two-column">
+      <div>
+        <h2>State constraints (safety bounds)</h2>
+        <p>Keep CubeSat within testbed workspace:</p>
+        <p class="equation">
+          \[
+            \begin{aligned}
+            |x| &\le 3.0 \text{ m} & &\text{(table width)} \\
+            |y| &\le 3.0 \text{ m} & &\text{(table depth)} \\
+            |\theta| &\le 2\pi \text{ rad} & &\text{(full rotation)} \\[0.3em]
+            |v_x| &\le 0.25 \text{ m/s} & &\text{(safe speed)} \\
+            |v_y| &\le 0.25 \text{ m/s} & &\text{(safe speed)} \\
+            |\omega| &\le \frac{\pi}{2} \text{ rad/s} & &\text{(90°/s max spin)}
+            \end{aligned}
+          \]
+        </p>
+        <p class="muted">Applied at every timestep \(k+1, k+2, \ldots, k+N\)</p>
+        
+        <h2 style="margin-top: 0.6em;">Input constraints</h2>
+        <p class="equation">
+          \[
+            u_i \in \{0, 1\} \quad \text{for each thruster } i = 1, \ldots, 8
+          \]
+        </p>
+        <p class="muted">Thrusters are either fully on or fully off — no PWM</p>
+      </div>
 
-    <h2>Switching logic</h2>
-    <ul>
-      <li>Binary \(s_{k+j,i}\) indicates whether thruster \(i\) changed state between steps \(k+j-1\) and \(k+j\).</li>
-      <li>Linear inequalities link \(s_{k+j,i}\) to \(u_{k+j-1,i}\) and \(u_{k+j,i}\).</li>
-      <li>Cost term \(\sum_{j=0}^{N-1} s_{k+j,i}\) penalizes chatter.</li>
-    </ul>
+      <div>
+        <h2>Why these limits?</h2>
+        <table style="font-size: 0.85em; margin-top: 0.9em;">
+          <tr><td><strong>Position</strong></td><td>Stay on epoxy testbed</td></tr>
+          <tr><td><strong>Velocity</strong></td><td>Prevent collisions, allow stopping</td></tr>
+          <tr><td><strong>Angular rate</strong></td><td>Keep attitude controllable</td></tr>
+        </table>
+
+        <h2 style="margin-top: 0.6em;">How the solver sees it</h2>
+        <p>Each bound becomes two inequalities:</p>
+        <p class="equation" style="font-size: 0.95em;">
+          \[
+            \underbrace{x \le 3.0}_{\text{upper}} \quad \text{and} \quad \underbrace{-x \le 3.0}_{\text{lower (i.e., } x \ge -3.0\text{)}}
+          \]
+        </p>
+        <p style="margin-top: 0.4em;">Stacked over all 6 states and N=12 timesteps:</p>
+        <p style="text-align: center; font-size: 0.9em;">
+          <strong>12 constraints per state × 6 states × 2 sides = 144 inequalities</strong>
+        </p>
+        <p class="muted" style="margin-top: 0.4em;">Plus 8 binary variables × 12 timesteps = 96 integer decisions</p>
+      </div>
+    </div>
 
     <div class="progress"><div class="progress-bar"></div></div>
   </section>
@@ -1863,144 +2296,55 @@
   <!-- Backup M8 – Compact MIQP form -->
   <section class="slide">
     <div class="slide-header">
-      <h1>Compact MIQP Form</h1>
+      <h1>Complete MIQP Formulation</h1>
       <span class="tag">Backup – Math</span>
     </div>
 
+    <p><strong>The full optimization problem solved every 60 ms:</strong></p>
     <p class="equation">
       \[
-        \min_{x, u, s} \ \underbrace{\sum_{j=1}^{N} (x_{k+j} - x^{\text{target}})^\top Q (x_{k+j} - x^{\text{target}})}_{\text{quadratic in states}}
-        + \underbrace{c_u^\top u + c_s^\top s}_{\text{linear in binaries}}
-      \]
-    </p>
-    <p class="equation">
-      \[
-        \text{subject to}\quad
-        x_{k+j+1} = A x_{k+j} + B(\theta_k) u_{k+j},\quad
-        G x \le h,\quad
-        u_{k+j,i} \in \{0,1\}.
+        \min_{\mathbf{x}_{k+1:k+N},\, \mathbf{u}_{k:k+N-1}} \
+        \underbrace{\sum_{j=1}^{N} \left(\mathbf{x}_{k+j} - \mathbf{x}^{\text{target}}\right)^\top Q \left(\mathbf{x}_{k+j} - \mathbf{x}^{\text{target}}\right)}_{\text{quadratic tracking cost}}
+        + \underbrace{\sum_{j=0}^{N-1} \sum_{i=1}^{8} R \cdot u_{k+j,i}}_{\text{linear fuel cost}}
       \]
     </p>
 
-    <ul>
-      <li>Quadratic cost in continuous state variables → "Q" in MIQP.</li>
-      <li>Linear cost in binary control variables.</li>
-      <li>Linear dynamics and inequality constraints.</li>
-      <li>Binary constraints on thrusters → "MI" in MIQP.</li>
-    </ul>
-
-    <p class="muted">
-      Note: Since \(u \in \{0,1\}\), we have \(u^2 = u\), so control cost is effectively linear.
+    <p><strong>Subject to:</strong></p>
+    <p class="equation">
+      \[
+        \begin{aligned}
+        \mathbf{x}_{k+j+1} &= A \, \mathbf{x}_{k+j} + B(\theta_k) \, \mathbf{u}_{k+j} && \text{(dynamics, } j = 0, \ldots, N-1\text{)} \\[0.3em]
+        \mathbf{x}_{\min} &\le \mathbf{x}_{k+j} \le \mathbf{x}_{\max} && \text{(state bounds, } j = 1, \ldots, N\text{)} \\[0.3em]
+        u_{k+j,i} &\in \{0, 1\} && \text{(binary thrusters, } j = 0, \ldots, N-1;\, i = 1, \ldots, 8\text{)}
+        \end{aligned}
+      \]
     </p>
 
-    <div class="progress"><div class="progress-bar"></div></div>
-  </section>
-
-  <!-- Backup – Controller alternatives -->
-  <section class="slide">
-    <div class="slide-header">
-      <h1>Why Not Other Controllers?</h1>
-      <span class="tag">Backup – Controller</span>
-    </div>
-
-    <div class="two-column">
+    <div class="two-column" style="margin-top: 0.5em;">
       <div>
-        <h2>PID / LQR with saturation</h2>
+        <h2>Why this is MIQP</h2>
         <ul>
-          <li>Constraints handled indirectly (clipping outputs).</li>
-          <li>No explicit fuel or binary modeling.</li>
-          <li>Cannot guarantee constraint satisfaction.</li>
+          <li><strong>MI:</strong> Binary variables \(u_{k+j,i} \in \{0,1\}\)</li>
+          <li><strong>Q:</strong> Quadratic cost in continuous states \(\mathbf{x}\)</li>
+          <li><strong>P:</strong> Linear dynamics and constraints</li>
         </ul>
-
-        <h2>Heuristic bang–bang / rule-based</h2>
-        <ul>
-          <li>Simple to implement.</li>
-          <li>Hard to tune for complex trajectories.</li>
-          <li>No formal guarantees on constraint or optimality.</li>
-        </ul>
-      </div>
-
-      <div>
-        <h2>Nonlinear MPC (MINLP)</h2>
-        <ul>
-          <li>More accurate dynamics model.</li>
-          <li>Non-convex optimization; much harder to solve.</li>
-          <li>Solve times highly variable—hard to meet 60&nbsp;ms deadline.</li>
-        </ul>
-
-        <h2>Continuous relaxation + rounding</h2>
-        <ul>
-          <li>Solve with \(u \in [0,1]\) then round to binary.</li>
-          <li>Sub-optimal; rounding can violate constraints.</li>
-          <li>Loses the benefit of explicit binary reasoning.</li>
-        </ul>
-      </div>
-    </div>
-
-    <p class="muted">
-      Mixed-integer quadratic MPC (MIQP) is a practical middle ground: explicit binaries, constraint guarantees, and predictable solve times.
-    </p>
-
-    <div class="progress"><div class="progress-bar"></div></div>
-  </section>
-
-  <!-- Backup – Frozen heading assumption -->
-  <section class="slide">
-    <div class="slide-header">
-      <h1>Frozen Heading: MIQP vs. MINLP</h1>
-      <span class="tag">Backup – Key Assumption</span>
-    </div>
-
-    <div class="two-column">
-      <div>
-        <h2>Our approach (MIQP)</h2>
-        <p>Assume \(\theta \approx \theta_k\) for all 12 prediction steps:</p>
-        <ul>
-          <li>Step \(k\): measure \(\theta_k\)</li>
-          <li>Step \(k+1\): use \(B(\theta_k)\)</li>
-          <li>Step \(k+2\): use \(B(\theta_k)\)</li>
-          <li style="list-style: none;">⋮</li>
-          <li>Step \(k+11\): use \(B(\theta_k)\)</li>
-        </ul>
-        <p class="muted" style="margin-top: 0.5em;">
-          Same \(B\) matrix for entire 0.72&nbsp;s horizon.<br/>
-          Heading is "frozen" at measured value.
+        <p class="muted" style="margin-top: 0.3em;">
+          Note: \(u^2 = u\) for binary, so fuel cost stays linear.
         </p>
-
-        <h2>Why this works</h2>
-        <ul>
-          <li>Short horizon (0.72&nbsp;s) — limited rotation.</li>
-          <li>Slow maneuvers — \(\omega\) typically small.</li>
-          <li>Re-solve every 60&nbsp;ms — errors corrected quickly.</li>
-        </ul>
       </div>
-
       <div>
-        <h2>Alternative (MINLP)</h2>
-        <p>Predict \(\theta\) evolution over all 12 steps:</p>
+        <h2>Problem size (N = 12)</h2>
         <ul>
-          <li>Step \(k\): measure \(\theta_k\)</li>
-          <li>Step \(k+1\): \(\theta_{k+1} = \theta_k + \Delta t \cdot \omega_k\), use \(B(\theta_{k+1})\)</li>
-          <li>Step \(k+2\): \(\theta_{k+2} = \theta_{k+1} + \Delta t \cdot \omega_{k+1}\), use \(B(\theta_{k+2})\)</li>
-          <li style="list-style: none;">⋮</li>
+          <li>Binary variables: \(8 \times 12 = 96\)</li>
+          <li>Continuous variables: \(6 \times 12 = 72\) states</li>
+          <li>Dynamics constraints: \(6 \times 12 = 72\)</li>
+          <li>State bound constraints: \(12 \times 12 = 144\)</li>
         </ul>
-        <p class="muted" style="margin-top: 0.5em;">
-          Different \(B(\theta_{k+j})\) at each step.<br/>
-          \(\theta_{k+j}\) depends on \(\omega\), which depends on \(u\) — coupled!
+        <p class="muted" style="margin-top: 0.3em;">
+          Solved by Gurobi in ~5 ms average, &lt;50 ms worst case.
         </p>
-
-        <h2>Why this is harder</h2>
-        <ul>
-          <li>\(\cos\theta_{k+j} \cdot u_i\) is nonlinear (trig × binary).</li>
-          <li>Non-convex optimization — no global guarantees.</li>
-          <li>Solve times unpredictable — may miss deadline.</li>
-        </ul>
       </div>
     </div>
-
-    <p class="muted" style="margin-top: 0.8em; text-align: center;">
-      The frozen-heading approximation trades model fidelity for computational tractability.
-    </p>
 
     <div class="progress"><div class="progress-bar"></div></div>
   </section>
@@ -2049,8 +2393,6 @@
         switch (e.key) {
           case 'ArrowRight':
           case 'PageDown':
-          case ' ':
-          case 'Enter':
             next();
             break;
           case 'ArrowLeft':
@@ -2058,13 +2400,6 @@
             prev();
             break;
         }
-      });
-
-      // Click anywhere to go to next slide (optional)
-      document.addEventListener('click', (e) => {
-        // Avoid advancing when selecting text
-        if (window.getSelection && window.getSelection().toString().length > 0) return;
-        next();
       });
 
       // Initialize first progress bar
