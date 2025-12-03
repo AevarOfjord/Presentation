@@ -364,7 +364,7 @@
         <ul>
           <li><strong>PID / LQR:</strong> No explicit binary or fuel modeling, constraints handled indirectly.</li>
           <li><strong>Bang–bang:</strong> Hard to tune, no formal constraint guarantees.</li>
-          <li><strong>Nonlinear MPC (MINLP):</strong> More accurate but computationally expensive with unpredictable solve times.</li>
+          <li><strong>Nonlinear MPC (MINQP):</strong> More accurate but computationally expensive with unpredictable solve times.</li>
         </ul>
       </div>
     </div>
@@ -1015,7 +1015,6 @@
         <ul>
           <li>Short horizon — satellite doesn't rotate much</li>
           <li>Re-solve every 60&nbsp;ms — errors corrected quickly</li>
-          <li><strong>Result:</strong> Linear problem → fast, reliable solves</li>
         </ul>
 
         <p class="muted" style="margin-top: 0.5em;">
@@ -1025,7 +1024,7 @@
       </div>
 
       <div>
-        <h2>Alternative (MINLP)</h2>
+        <h2>Alternative (MINQP)</h2>
         <p>Let θ <strong>evolve</strong> over the horizon:</p>
         <ul>
           <li>Step \(k\): measure \(\theta_k\)</li>
@@ -1042,7 +1041,6 @@
         <ul>
           <li>\(\omega_{k+j}\) depends on which thrusters fire (the \(u\) we're solving for)</li>
           <li>\(\cos\theta_{k+j} \cdot u_i\) = nonlinear term</li>
-          <li><strong>Result:</strong> Non-convex problem → slow, unpredictable solves</li>
         </ul>
       </div>
     </div>
