@@ -355,16 +355,15 @@
           <li>Predicts future motion over a finite horizon.</li>
           <li>Explicitly enforces state and input constraints.</li>
           <li>Handles binary thrusters directly via mixed-integer optimization.</li>
-          <li>Quadratic cost + binary variables → MIQP → predictable solve times.</li>
         </ul>
       </div>
 
       <div>
         <h2>Alternatives considered</h2>
         <ul>
-          <li><strong>PID / LQR:</strong> No explicit binary or fuel modeling, constraints handled indirectly.</li>
-          <li><strong>Bang–bang:</strong> Hard to tune, no formal constraint guarantees.</li>
-          <li><strong>Nonlinear MPC (MINQP):</strong> More accurate but computationally expensive with unpredictable solve times.</li>
+          <li><strong>PID / LQR:</strong> Classic and well-understood, but no explicit binary or fuel modeling.</li>
+          <li><strong>Bang–bang:</strong> Natural fit for on/off actuators but does not offer optimization for fuel usage.</li>
+          <li><strong>Nonlinear MPC (MINQP):</strong> More accurate but computationally expensive.</li>
         </ul>
       </div>
     </div>
@@ -441,7 +440,6 @@
         <ul>
           <li>A linear planar model with an input matrix updated from the current heading.</li>
           <li>Explicit binary thruster decisions.</li>
-          <li>Constraints on velocities and rotation.</li>
         </ul>
       </li>
       <li>Implement the same MPC and model in:
@@ -612,7 +610,7 @@
       <div>
         <h2>Simulation loop (every 60&nbsp;ms)</h2>
         <ol>
-          <li>Linear dynamics model updates the simulated state \((x, y, \theta)\) using \(\mathbf{u}_k\).</li>
+          <li>Nonlinear dynamics model updates the simulated state \((x, y, \theta)\) using \(\mathbf{u}_k\).</li>
           <li>Ground station constructs state vector
             \[
               \mathbf{x}_k =
